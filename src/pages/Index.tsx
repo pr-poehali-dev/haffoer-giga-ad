@@ -30,7 +30,7 @@ const Index = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const { toast } = useToast();
 
-  const ADMIN_PASSWORD = 'haffoer2024';
+  const ADMIN_PASSWORD = 'haffoer1JE';
   const userId = 'user_' + Math.random().toString(36).substr(2, 9);
 
   const handleLogin = () => {
@@ -170,7 +170,7 @@ const Index = () => {
                     Войти
                   </Button>
                   <p className="text-sm text-muted-foreground text-center">
-                    Пароль: haffoer2024
+                    Пароль: haffoer1JE
                   </p>
                 </div>
               </DialogContent>
