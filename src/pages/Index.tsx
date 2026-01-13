@@ -18,6 +18,7 @@ interface Ad {
   views: number;
   likes: number;
   likedBy: string[];
+  viewedBy: string[];
 }
 
 const Index = () => {
@@ -85,6 +86,7 @@ const Index = () => {
       views: 0,
       likes: 0,
       likedBy: [],
+      viewedBy: [],
     };
 
     setAds([newAd, ...ads]);
@@ -108,9 +110,12 @@ const Index = () => {
   };
 
   const handleViewAd = (id: string) => {
-    setAds(ads.map(ad => 
-      ad.id === id ? { ...ad, views: ad.views + 1 } : ad
-    ));
+    setAds(ads.map(ad => {
+      if (ad.id === id && !ad.viewedBy.includes(userId)) {
+        return { ...ad, views: ad.views + 1, viewedBy: [...ad.viewedBy, userId] };
+      }
+      return ad;
+    }));
   };
 
   const handleLike = (id: string) => {
